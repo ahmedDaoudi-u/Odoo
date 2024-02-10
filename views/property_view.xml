@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="estate_property_tree_view" model="ir.ui.view">
+            <field name="name">estate.property.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="postcode"></field>
+                    <field name="data_availability"></field>
+                    <field name="expected_price"></field>
+                    <field name="best_offer"></field>
+                    <field name="selling_price"></field>
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="estate_property_form_view" model="ir.ui.view">
+            <field name="name">estate.property.from</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <group>
+                                <field name="postcode"></field>
+                                <field name="data_availability"></field>
+                            </group>
+
+                            <group>
+                                <field name="expected_price"></field>
+                                <field name="best_offer"></field>
+                                <field name="selling_price"></field>
+
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+
+            </field>
+
+        </record>
+
+        <record id="action_property" model="ir.actions.act_window">
+            <field name="name">Property</field>
+            <field name="res_model">estate.property</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="estate_property_tree_view"/>
+            <field name="help" type="html">
+                <p class="o_view_content_smiling_face">
+                    Create a property to advertise.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
