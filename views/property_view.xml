@@ -20,7 +20,7 @@
         </record>
 
         <record id="estate_property_form_view" model="ir.ui.view">
-            <field name="name">estate.property.from</field>
+            <field name="name">estate.property.kjdfkdfvkdj</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form>
@@ -41,14 +41,42 @@
 
                             </group>
 
-                            <field name="offer_ids">
-                                <tree>
-                                    <field name ="price"/>
-                                    <field name ="partner_id"/>
-                                    <field name="status"/>
-                                </tree>
-                            </field>
                         </group>
+                        <notebook>
+                            <page name="Description">
+                                <group>
+                                    <field name="description"/>
+                                    <field name="bedrooms"/>
+                                    <field name="living_area"/>
+                                    <field name="facades"/>
+                                    <field name="garage"/>
+                                    <field name="garden_area"/>
+                                    <field name="Garden_orientation"/>
+                                    <field name="total_area"/>
+                                </group>
+                            </page>
+                            <page name="Offers">
+                                    <field name="offer_ids">
+                                        <tree editable="bottom">
+                                            <field name ="price"/>
+                                            <field name ="partner_id"/>
+                                            <field name="creation_date"/>
+                                            <field name="validity"/>
+                                            <field name="deadline"/>
+                                            <field name="status" nolabel="1"/>
+                                        </tree>
+                                    </field>
+                            </page>
+                            <page name="Other Info">
+                                <group>
+                                    <field name="sales_id"/>
+                                    <field name="buyer_id"/>
+                                </group>
+
+
+                            </page>
+
+                        </notebook>
                     </sheet>
 
                 </form>

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models,api
 
 
 class Property(models.Model):
@@ -14,7 +14,7 @@ class Property(models.Model):
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
 
-    offer_ids = fields.One2many('estate.property.form', 'property_id', String="Offers")
+    offer_ids = fields.One2many('estate.property.offer', 'property_id', String="Offers")
 
     description = fields.Text(string="Description")
     bedrooms = fields.Integer(String="Bedrooms")
@@ -26,6 +26,16 @@ class Property(models.Model):
     Garden_orientation = fields.Selection(
         [('north', 'North'), ('south', 'South'), ('West', 'west'), ('East', 'east')],
         String="Garden orientation", default="north")
+
+    sales_id = fields.Many2one('res.users', String="Salesman")
+    buyer_id = fields.Many2one('res.partner', String="Buyer")
+
+    @api.depends('living_area','garden_area')
+    def _adding_space(self):
+        for rec in self:
+            rec.total_area = rec.living_area + rec.garden_area
+
+    total_area = fields.Integer(String="Total Area", compute="_adding_space")
 
 
 class PropertyType(models.Model):
