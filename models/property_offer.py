@@ -1,9 +1,9 @@
 from odoo import fields, models
 
 
-class PropertyForm(models.Model):
-    _name = "estate.property.form"
-    _description = "Estate Property Form"
+class PropertyOffer(models.Model):
+    _name = "estate.property.offer"
+    _description = "Estate Property Offers"
 
     price = fields.Float(string="Price")
     status = fields.Selection(
@@ -12,4 +12,7 @@ class PropertyForm(models.Model):
 
     partner_id = fields.Many2one('res.partner', string="Customer")
     property_id = fields.Many2one('estate.property', string="Property")
+
+    validity = fields.Integer(String="Validity")
+    deadline = fields.Date(String="Deadline")
 

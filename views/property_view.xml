@@ -41,14 +41,40 @@
 
                             </group>
 
-                            <field name="offer_ids">
-                                <tree>
-                                    <field name ="price"/>
-                                    <field name ="partner_id"/>
-                                    <field name="status"/>
-                                </tree>
-                            </field>
                         </group>
+                        <notebook>
+                            <page name="Description">
+                                <group>
+                                    <field name="description"/>
+                                    <field name="bedrooms"/>
+                                    <field name="living_area"/>
+                                    <field name="facades"/>
+                                    <field name="garage"/>
+                                    <field name="garden_area"/>
+                                    <field name="Garden_orientation"/>
+                                </group>
+                            </page>
+                            <page name="Offers">
+                                    <field name="offer_ids">
+                                        <tree editable="bottom">
+                                            <field name ="price"/>
+                                            <field name ="partner_id"/>
+                                            <field name="validity"/>
+                                            <field name="deadline"/>
+                                            <field name="status" nolabel="1"/>
+                                        </tree>
+                                    </field>
+                            </page>
+                            <page name="Other Info">
+                                <group>
+                                    <field name="sales_id"></field>
+                                    <field name="buyer_id"></field>
+                                </group>
+
+
+                            </page>
+
+                        </notebook>
                     </sheet>
 
                 </form>
