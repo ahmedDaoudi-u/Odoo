@@ -20,7 +20,7 @@
         </record>
 
         <record id="estate_property_form_view" model="ir.ui.view">
-            <field name="name">estate.property.from</field>
+            <field name="name">estate.property.kjdfkdfvkdj</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form>
@@ -52,6 +52,7 @@
                                     <field name="garage"/>
                                     <field name="garden_area"/>
                                     <field name="Garden_orientation"/>
+                                    <field name="total_area"/>
                                 </group>
                             </page>
                             <page name="Offers">
@@ -59,6 +60,7 @@
                                         <tree editable="bottom">
                                             <field name ="price"/>
                                             <field name ="partner_id"/>
+                                            <field name="creation_date"/>
                                             <field name="validity"/>
                                             <field name="deadline"/>
                                             <field name="status" nolabel="1"/>
@@ -67,8 +69,8 @@
                             </page>
                             <page name="Other Info">
                                 <group>
-                                    <field name="sales_id"></field>
-                                    <field name="buyer_id"></field>
+                                    <field name="sales_id"/>
+                                    <field name="buyer_id"/>
                                 </group>
 
 

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models,api
 
 
 class Property(models.Model):
@@ -28,7 +28,14 @@ class Property(models.Model):
         String="Garden orientation", default="north")
 
     sales_id = fields.Many2one('res.users', String="Salesman")
-    partner_id = fields.Many2one('res.partner', String="Buyer")
+    buyer_id = fields.Many2one('res.partner', String="Buyer")
+
+    @api.depends('living_area','garden_area')
+    def _adding_space(self):
+        for rec in self:
+            rec.total_area = rec.living_area + rec.garden_area
+
+    total_area = fields.Integer(String="Total Area", compute="_adding_space")
 
 
 class PropertyType(models.Model):
