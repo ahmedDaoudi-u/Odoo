@@ -8,6 +8,7 @@
         'security/ir.model.access.csv',
         'views/property_view.xml',
         'views/Property_view_type.xml',
+        'views/property_view_tag.xml',
         'views/menu_item.xml'
     ],
     "category": "Sales",
