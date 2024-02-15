@@ -7,6 +7,8 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="type_id"></field>
+                    <field name="tag_ids"></field>
                     <field name="postcode"></field>
                     <field name="data_availability"></field>
                     <field name="expected_price"></field>
@@ -25,7 +27,9 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="tag_ids" widget="many2many_tags"></field>
                             <group>
+                                <field name="type_id"></field>
                                 <field name="postcode"></field>
                                 <field name="data_availability"></field>
                             </group>

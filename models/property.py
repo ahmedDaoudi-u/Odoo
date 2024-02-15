@@ -5,12 +5,15 @@ class Property(models.Model):
     _name = "estate.property"
 
     name = fields.Char(string="Name", required=True)
-    description = fields.Text(string="Description")
+    type_id = fields.Many2one('estate.property.type',String="Property Type")
+    tag_ids = fields.Many2many('estate.property.tag', String="Property Tag")
     postcode = fields.Char(string="Postcode")
     data_availability = fields.Date(String="Date")
     expected_price = fields.Float(String="Expected Price")
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
+
+    description = fields.Text(string="Description")
     bedrooms = fields.Integer(String="Bedrooms")
     living_area = fields.Integer(String="living rooms")
     facades = fields.Integer(String="facades")
@@ -22,7 +25,12 @@ class Property(models.Model):
         String="Garden orientation", default="north")
 
 
-class property_type(models.Model):
-    _name = "estate.property_type"
+class PropertyType(models.Model):
+    _name = "estate.property.type"
+
+    name = fields.Char(string="Name", required=True)
+
+class PropertyTag(models.Model):
+    _name = "estate.property.tag"
 
     name = fields.Char(string="Name", required=True)
