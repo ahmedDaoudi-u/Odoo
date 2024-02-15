@@ -9,10 +9,10 @@
         'views/property_view.xml',
         'views/Property_view_type.xml',
         'views/property_view_tag.xml',
-        'views/menu_item.xml'
+        'views/menu_item.xml',
     ],
     "category": "Sales",
-    "depends": [],
+    "depends": ['base'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
