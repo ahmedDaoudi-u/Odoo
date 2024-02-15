@@ -13,7 +13,8 @@ class PropertyOffer(models.Model):
 
     partner_id = fields.Many2one('res.partner', string="Customer")
     property_id = fields.Many2one('estate.property', string="Property")
-    deadline = fields.Date(String="Deadline", compute="_deadline_date")
+
+    deadline = fields.Date(String="Deadline", compute="_deadline_date" ,inverse="_reverse_deadline")
     validity = fields.Integer(String="Validity")
 
     creation_date = fields.Date(String="Create Date")
@@ -26,3 +27,6 @@ class PropertyOffer(models.Model):
             else:
                 rec.deadline = False
 
+    def _reverse_deadline(self):
+        for rec in self:
+            rec.validity = (rec.deadline - rec.creation_date).days
