@@ -32,7 +32,7 @@ class Property(models.Model):
 
     phone = fields.Char(string="Phone", related="buyer_id.phone")
 
-    @api.depends('living_area','garden_area')
+    @api.onchange('living_area','garden_area')
     def _adding_space(self):
         for rec in self:
             rec.total_area = rec.living_area + rec.garden_area

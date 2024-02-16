@@ -1,5 +1,7 @@
 from odoo import fields, models,api
 from datetime import timedelta
+from odoo.exceptions import ValidationError
+
 
 
 class PropertyOffer(models.Model):
@@ -18,6 +20,14 @@ class PropertyOffer(models.Model):
     validity = fields.Integer(String="Validity")
 
     creation_date = fields.Date(String="Create Date")
+
+
+    @api.constrains('validity')
+    def _constrained_field(self):
+        for rec in self:
+            if rec.deadline < rec.creation_date:
+                raise ValidationError("Opps ! ,You can not make a deadline date in the past")
+
 
     @api.depends('creation_date', 'validity')
     def _deadline_date(self):
