@@ -28,7 +28,9 @@ class Property(models.Model):
         String="Garden orientation", default="north")
 
     sales_id = fields.Many2one('res.users', String="Salesman")
-    buyer_id = fields.Many2one('res.partner', String="Buyer")
+    buyer_id = fields.Many2one('res.partner', String="Buyer", domain=[('is_company','=',True)])
+
+    phone = fields.Char(string="Phone", related="buyer_id.phone")
 
     @api.depends('living_area','garden_area')
     def _adding_space(self):
