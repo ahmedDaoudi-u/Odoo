@@ -20,16 +20,21 @@
         </record>
 
         <record id="estate_property_form_view" model="ir.ui.view">
-            <field name="name">estate.property.kjdfkdfvkdj</field>
+            <field name="name">estate.property.form</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="accepted" type="object" string="Accept"/>
+                        <button name="refused" type="object" string="Refuse"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="name"/>
                             <field name="tag_ids" widget="many2many_tags"></field>
                             <group>
                                 <field name="type_id"></field>
+                                    <field name="state"></field>
                                 <field name="postcode"></field>
                                 <field name="data_availability"></field>
                             </group>

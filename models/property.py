@@ -5,6 +5,9 @@ class Property(models.Model):
     _name = "estate.property"
     _description = "Estate Property"
 
+    state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('new', 'New'), ('cancel', 'Cancel')],
+        String="Status", default="accepted")
+
     name = fields.Char(string="Name", required=True)
     type_id = fields.Many2one('estate.property.type',String="Property Type")
     tag_ids = fields.Many2many('estate.property.tag', String="Property Tag")
@@ -38,6 +41,12 @@ class Property(models.Model):
             rec.total_area = rec.living_area + rec.garden_area
 
     total_area = fields.Integer(String="Total Area", compute="_adding_space")
+
+    def accepted(self):
+        self.state = 'accepted'
+
+    def refused(self):
+        self.state = 'refused'
 
 
 class PropertyType(models.Model):
