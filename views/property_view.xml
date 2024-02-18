@@ -15,18 +15,17 @@
                     <field name="best_offer"></field>
                     <field name="selling_price"></field>
                 </tree>
-
             </field>
         </record>
-
         <record id="estate_property_form_view" model="ir.ui.view">
             <field name="name">estate.property.form</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="accepted" type="object" string="Accept"/>
-                        <button name="refused" type="object" string="Refuse"/>
+                        <button name="action_sold" type="object" string="Sold" class="btn btn-primary"/>
+                        <button name="action_cancel" type="object" string="Cancel" class="btn btn-danger"/>
+                        <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
                         <group>
@@ -38,14 +37,11 @@
                                 <field name="postcode"></field>
                                 <field name="data_availability"></field>
                             </group>
-
                             <group>
                                 <field name="expected_price"></field>
                                 <field name="best_offer"></field>
                                 <field name="selling_price"></field>
-
                             </group>
-
                         </group>
                         <notebook>
                             <page name="Description">
@@ -78,16 +74,11 @@
                                     <field name="buyer_id"/>
                                     <field name="phone"/>
                                 </group>
-
                             </page>
-
                         </notebook>
                     </sheet>
-
                 </form>
-
             </field>
-
         </record>
 
         <record id="action_property" model="ir.actions.act_window">
