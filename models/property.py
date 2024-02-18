@@ -38,6 +38,13 @@ class Property(models.Model):
 
     phone = fields.Char(string="Phone", related="buyer_id.phone")
 
+    offer_count = fields.Integer(String="Offers", compute="_number_offers")
+
+    @api.depends('offer_ids')
+    def _number_offers(self):
+        for rec in self:
+            rec.offer_count = len(rec.offer_ids)
+
     @api.onchange('living_area','garden_area')
     def _adding_space(self):
         for rec in self:
