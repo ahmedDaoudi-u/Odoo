@@ -21,7 +21,14 @@ class PropertyOffer(models.Model):
 
     creation_date = fields.Date(String="Create Date")
 
+    def _compute(self):
+        for rec in self :
+            if rec.partner_id and rec.property_id:
+                rec.name =f"{rec.property_id.name} - {rec.partner_id.name}"
+            else:
+                rec.name = '0'
 
+    name = fields.Char(String ="Description" ,compute="_compute")
     @api.constrains('validity')
     def _constrained_field(self):
         for rec in self:

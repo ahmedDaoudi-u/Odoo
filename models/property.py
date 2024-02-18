@@ -5,7 +5,10 @@ class Property(models.Model):
     _name = "estate.property"
     _description = "Estate Property"
 
-    state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('new', 'New'), ('cancel', 'Cancel')],
+    state = fields.Selection([('accepted', 'Offer Accepted'),
+                              ('received', 'Offer Received'),
+                              ('Sold','sold'),
+                              ('new', 'New'), ('cancel', 'Cancel')],
         String="Status", default="accepted")
 
     name = fields.Char(string="Name", required=True)
@@ -42,11 +45,11 @@ class Property(models.Model):
 
     total_area = fields.Integer(String="Total Area", compute="_adding_space")
 
-    def accepted(self):
-        self.state = 'accepted'
+    def action_sold(self):
+        self.state = 'sold'
 
-    def refused(self):
-        self.state = 'refused'
+    def action_cancel(self):
+        self.state = 'cancel'
 
 
 class PropertyType(models.Model):
