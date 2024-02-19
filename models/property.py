@@ -46,6 +46,7 @@ class Property(models.Model):
         for rec in self:
             rec.offer_count = len(rec.offer_ids)
 
+
     @api.onchange('living_area','garden_area')
     def _adding_space(self):
         for rec in self:
