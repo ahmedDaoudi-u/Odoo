@@ -8,6 +8,25 @@
             <field name="domain">[('property_id', '=' , active_id)]</field>
         </record>
 
+        <record id="action_property_kanban_view" model="ir.ui.view">
+        <field name="name">estate.property.kanban</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="name"/>
+                    <field name="state"></field>
+                    <field name="postcode"></field>
+                    <template>
+                        <t t-name="kanban-box">
+                            <div class="oe-kanban-details">
+                                <field name="name"/>
+                            </div>
+                        </t>
+                    </template>
+                </kanban>
+            </field>
+        </record>
+
 
         <record id="estate_property_tree_view" model="ir.ui.view">
             <field name="name">estate.property.tree</field>
@@ -99,7 +118,7 @@
         <record id="action_property" model="ir.actions.act_window">
             <field name="name">Property</field>
             <field name="res_model">estate.property</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
             <field name="view_id" ref="estate_property_tree_view"/>
             <field name="help" type="html">
                 <p class="o_view_content_smiling_face">
