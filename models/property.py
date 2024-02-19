@@ -17,6 +17,7 @@ class Property(models.Model):
     postcode = fields.Char(string="Postcode")
     data_availability = fields.Date(String="Date")
     expected_price = fields.Float(String="Expected Price")
+
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
 
@@ -37,6 +38,13 @@ class Property(models.Model):
     buyer_id = fields.Many2one('res.partner', String="Buyer", domain=[('is_company','=',True)])
 
     phone = fields.Char(string="Phone", related="buyer_id.phone")
+
+    offer_count = fields.Integer(String="Offers", compute="_number_offers")
+
+    @api.depends('offer_ids')
+    def _number_offers(self):
+        for rec in self:
+            rec.offer_count = len(rec.offer_ids)
 
     @api.onchange('living_area','garden_area')
     def _adding_space(self):

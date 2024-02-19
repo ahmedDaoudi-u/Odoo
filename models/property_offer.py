@@ -3,7 +3,6 @@ from datetime import timedelta
 from odoo.exceptions import ValidationError
 
 
-
 class PropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "Estate Property Offers"
@@ -19,8 +18,20 @@ class PropertyOffer(models.Model):
     deadline = fields.Date(String="Deadline", compute="_deadline_date" ,inverse="_reverse_deadline")
     validity = fields.Integer(String="Validity")
 
+
+
     creation_date = fields.Date(String="Create Date")
 
+    def action_accepted_offer(self):
+        for rec in self:
+            rec.status  = 'accepted'
+
+    def action_refused_offer(self):
+        for rec in self:
+            rec.status = 'refused'
+
+
+    @api.depends('property_id','partner_id')
     def _compute(self):
         for rec in self :
             if rec.partner_id and rec.property_id:
