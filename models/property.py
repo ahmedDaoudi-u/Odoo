@@ -17,6 +17,7 @@ class Property(models.Model):
     postcode = fields.Char(string="Postcode")
     data_availability = fields.Date(String="Date")
     expected_price = fields.Float(String="Expected Price")
+
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
 

@@ -71,13 +71,15 @@
                             </page>
                             <page name="Offers">
                                     <field name="offer_ids">
-                                        <tree editable="bottom">
+                                        <tree editable="bottom" decoration-success="status == 'accepted'" decoration-danger="status == 'refused'">
                                             <field name ="price"/>
                                             <field name ="partner_id"/>
                                             <field name="creation_date"/>
                                             <field name="validity"/>
                                             <field name="deadline"/>
-                                            <field name="status" nolabel="1"/>
+                                            <field name="status" readonly="1"/>
+                                            <button name="action_accepted_offer" type="object" icon="fa-check" string="Accept"/>
+                                            <button name="action_refused_offer" type="object" icon="fa-times" string="Decline"/>
                                         </tree>
                                     </field>
                             </page>

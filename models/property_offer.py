@@ -18,7 +18,17 @@ class PropertyOffer(models.Model):
     deadline = fields.Date(String="Deadline", compute="_deadline_date" ,inverse="_reverse_deadline")
     validity = fields.Integer(String="Validity")
 
+
+
     creation_date = fields.Date(String="Create Date")
+
+    def action_accepted_offer(self):
+        for rec in self:
+            rec.status  = 'accepted'
+
+    def action_refused_offer(self):
+        for rec in self:
+            rec.status = 'refused'
 
 
     @api.depends('property_id','partner_id')
