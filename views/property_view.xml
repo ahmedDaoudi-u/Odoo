@@ -61,7 +61,7 @@
                             </button>
                         </div>
                         <group>
-                            <field name="name"/>
+                            <field name="name" placeholder="Property Name"/>
                             <field name="tag_ids" widget="many2many_tags"></field>
                             <group>
                                 <field name="type_id"></field>
