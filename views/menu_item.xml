@@ -9,6 +9,8 @@
             <menuitem id="menu_property_types" name="Property Type" action="real_estate_ads.action_property_type"/>
             <menuitem id="menu_property_tags" name="Property Tag" action="real_estate_ads.action_property_tag"/>
            <menuitem id="menu_property_offers" name="Offers" action="real_estate_ads.action_property_offer"/>
+           <menuitem id="menu_action_client" name="Action Client" action="real_estate_ads.custom_client_action"/>
+
        </menuitem>
     </menuitem>
 </odoo>

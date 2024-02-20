@@ -14,6 +14,12 @@
         'data/estate.property.type.csv'
 
     ],
+    "assets" : {
+        'web.assets_backend':[
+            'real_estate_ads/static/src/js/custom_client.js',
+            'real_estate_ads/static/src/xml/custom_client.xml',
+        ]
+    },
     "category": "Sales",
     "depends": ['base'],
     "installable": True,

@@ -1,0 +1,9 @@
+<template>
+    <t t-name="CustomActions">
+        <div>
+           <h2>
+               Custom Client actions
+           </h2>
+        </div>
+    </t>
+</template>
