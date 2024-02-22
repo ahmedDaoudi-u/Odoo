@@ -14,7 +14,6 @@
                       <field name="validity"/>
                      <field name="creation_date"/>
                 </tree>
-
             </field>
         </record>
 
@@ -47,7 +46,7 @@
         </record>
 
         <record id="action_property_offer" model="ir.actions.act_window">
-            <field name="name">Property offer</field>
+            <field name="name">Property Offer</field>
             <field name="res_model">estate.property.offer</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="estate_property_offer_tree_view"/>

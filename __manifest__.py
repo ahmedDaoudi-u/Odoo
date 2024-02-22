@@ -11,15 +11,10 @@
         'views/Property_view_type.xml',
         'views/property_view_tag.xml',
         'views/menu_item.xml',
-        'data/estate.property.type.csv'
-
+        'data/estate.property.type.csv',
+        'reports/property_report.xml',
+        'reports/report_template.xml'
     ],
-    "assets" : {
-        'web.assets_backend':[
-            'real_estate_ads/static/src/js/custom_client.js',
-            'real_estate_ads/static/src/xml/custom_client.xml',
-        ]
-    },
     "category": "Sales",
     "depends": ['base'],
     "installable": True,
