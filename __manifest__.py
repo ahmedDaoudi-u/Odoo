@@ -11,8 +11,9 @@
         'views/Property_view_type.xml',
         'views/property_view_tag.xml',
         'views/menu_item.xml',
-        'data/estate.property.type.csv'
-
+        'data/estate.property.type.csv',
+        'reports/property_report.xml',
+        'reports/report_template.xml'
     ],
     "category": "Sales",
     "depends": ['base'],

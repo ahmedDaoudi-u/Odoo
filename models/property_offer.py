@@ -58,3 +58,4 @@ class PropertyOffer(models.Model):
     def _reverse_deadline(self):
         for rec in self:
             rec.validity = (rec.deadline - rec.creation_date).days
+
