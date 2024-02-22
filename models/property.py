@@ -3,6 +3,7 @@ from odoo import fields, models,api
 
 class Property(models.Model):
     _name = "estate.property"
+    _inherit = ["mail.thread","mail.activity.mixin"]
     _description = "Estate Property"
 
     state = fields.Selection([('accepted', 'Offer Accepted'),
@@ -16,7 +17,7 @@ class Property(models.Model):
     tag_ids = fields.Many2many('estate.property.tag', String="Property Tag")
     postcode = fields.Char(string="Postcode")
     data_availability = fields.Date(String="Date")
-    expected_price = fields.Float(String="Expected Price")
+    expected_price = fields.Float(String="Expected Price",tracking=True)
 
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
