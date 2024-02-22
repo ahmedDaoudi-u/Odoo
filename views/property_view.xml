@@ -9,7 +9,7 @@
         </record>
 
         <record id="action_property_kanban_view" model="ir.ui.view">
-        <field name="name">estate.property.kanban</field>
+            <field name="name">estate.property.kanban</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="state">
@@ -56,7 +56,8 @@
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button class="oe_stat_button" type="action" name="%(real_estate_ads.action_property_view_offers)d">
+                            <button class="oe_stat_button" type="action"
+                                    name="%(real_estate_ads.action_property_view_offers)d">
                                 <field name="offer_count" string="Offers" widget="statinfo"/>
                             </button>
                         </div>
@@ -65,7 +66,7 @@
                             <field name="tag_ids" widget="many2many_tags"></field>
                             <group>
                                 <field name="type_id"></field>
-                                    <field name="state"></field>
+                                <field name="state"></field>
                                 <field name="postcode"></field>
                                 <field name="data_availability"></field>
                             </group>
@@ -89,18 +90,21 @@
                                 </group>
                             </page>
                             <page name="Offers">
-                                    <field name="offer_ids">
-                                        <tree editable="bottom" decoration-success="status == 'accepted'" decoration-danger="status == 'refused'">
-                                            <field name ="price"/>
-                                            <field name ="partner_id"/>
-                                            <field name="creation_date"/>
-                                            <field name="validity"/>
-                                            <field name="deadline"/>
-                                            <field name="status" readonly="1"/>
-                                            <button name="action_accepted_offer" type="object" icon="fa-check" string="Accept"/>
-                                            <button name="action_refused_offer" type="object" icon="fa-times" string="Decline"/>
-                                        </tree>
-                                    </field>
+                                <field name="offer_ids">
+                                    <tree editable="bottom" decoration-success="status == 'accepted'"
+                                          decoration-danger="status == 'refused'">
+                                        <field name="price"/>
+                                        <field name="partner_id"/>
+                                        <field name="creation_date"/>
+                                        <field name="validity"/>
+                                        <field name="deadline"/>
+                                        <field name="status" readonly="1"/>
+                                        <button name="action_accepted_offer" type="object" icon="fa-check"
+                                                string="Accept"/>
+                                        <button name="action_refused_offer" type="object" icon="fa-times"
+                                                string="Decline"/>
+                                    </tree>
+                                </field>
                             </page>
                             <page name="Other Info">
                                 <group>
@@ -127,9 +131,5 @@
             </field>
         </record>
 
-         <record id="custom_client_action" model="ir.actions.client">
-            <field name="name">Custom Client</field>
-            <field name="tag">custom_client_action</field>
-        </record>
     </data>
 </odoo>

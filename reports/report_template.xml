@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <template id="report_estate_property_document">
+            <t r-call="web.external_layout">
+                <div class="mt-5">
+                        <div class="page">
+                        <h2> THis is the Property report</h2>
+                    </div>
+                </div>
+            </t>
+
+        </template>
+        <template id="property_estate_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="real_estate_ads.report_estate_property_document"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

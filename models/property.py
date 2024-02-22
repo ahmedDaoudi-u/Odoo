@@ -41,6 +41,11 @@ class Property(models.Model):
 
     offer_count = fields.Integer(String="Offers", compute="_number_offers")
 
+
+    def _get_object_property_filename(self):
+        self.ensure_one()
+        return 'Estate property  -%s' % self.name
+
     @api.depends('offer_ids')
     def _number_offers(self):
         for rec in self:
