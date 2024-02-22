@@ -16,7 +16,7 @@
         'reports/report_template.xml'
     ],
     "category": "Sales",
-    "depends": ['base'],
+    "depends": ['base',"mail"],
     "installable": True,
     "application": True,
     "license": "LGPL-3"

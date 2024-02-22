@@ -3,6 +3,7 @@ from odoo import fields, models,api
 
 class Property(models.Model):
     _name = "estate.property"
+    _inherit = ['mail.activity.mixin','mail.thread']
     _description = "Estate Property"
 
     state = fields.Selection([('accepted', 'Offer Accepted'),
