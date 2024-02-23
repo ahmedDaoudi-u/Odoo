@@ -52,6 +52,7 @@
                     <header>
                         <button name="action_sold" type="object" string="Sold" class="btn btn-primary"/>
                         <button name="action_cancel" type="object" string="Cancel" class="btn btn-danger"/>
+                        <button name="action_send_email" type="object" string="Ssend email" class="btn btn-danger"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -115,6 +116,11 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>
