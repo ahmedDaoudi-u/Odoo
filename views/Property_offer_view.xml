@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+
         <record id="estate_property_offer_tree_view" model="ir.ui.view">
             <field name="name">estate.property.offer.tree</field>
             <field name="model">estate.property.offer</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="price"/>
-                      <field name="status"/>
-                      <field name="partner_id"/>
-                      <field name="property_id"/>
-                      <field name="deadline"/>
-                      <field name="validity"/>
-                     <field name="creation_date"/>
+                    <field name="status"/>
+                    <field name="partner_id"/>
+                    <field name="property_id"/>
+                    <field name="deadline"/>
+                    <field name="validity"/>
+                    <field name="creation_date"/>
                 </tree>
-
             </field>
         </record>
 
@@ -25,25 +25,21 @@
                 <form>
                     <sheet>
                         <group>
-                           <group>
+                            <group>
                                 <field name="price"/>
-                               <field name="status"/>
-                               <field name="partner_id"/>
-                           </group>
-
-                           <group>
-                                 <field name="property_id"/>
-                                  <field name="deadline"/>
-                                  <field name="validity"/>
-                                 <field name="creation_date"/>
-                           </group>
+                                <field name="status"/>
+                                <field name="partner_id"/>
+                            </group>
+                            <group>
+                                <field name="property_id"/>
+                                <field name="deadline"/>
+                                <field name="validity"/>
+                                <field name="creation_date"/>
+                            </group>
                         </group>
                     </sheet>
-
                 </form>
-
             </field>
-
         </record>
 
         <record id="action_property_offer" model="ir.actions.act_window">
@@ -52,5 +48,6 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="estate_property_offer_tree_view"/>
         </record>
+
     </data>
 </odoo>

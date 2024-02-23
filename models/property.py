@@ -1,23 +1,23 @@
-from odoo import fields, models,api
+from odoo import fields, models, api
 
 
 class Property(models.Model):
     _name = "estate.property"
-    _inherit = ["mail.thread","mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Estate Property"
 
     state = fields.Selection([('accepted', 'Offer Accepted'),
                               ('received', 'Offer Received'),
-                              ('Sold','sold'),
+                              ('Sold', 'sold'),
                               ('new', 'New'), ('cancel', 'Cancel')],
-        String="Status", default="accepted")
+                             String="Status", default="accepted")
 
     name = fields.Char(string="Name", required=True)
-    type_id = fields.Many2one('estate.property.type',String="Property Type")
+    type_id = fields.Many2one('estate.property.type', String="Property Type")
     tag_ids = fields.Many2many('estate.property.tag', String="Property Tag")
     postcode = fields.Char(string="Postcode")
     data_availability = fields.Date(String="Date")
-    expected_price = fields.Float(String="Expected Price",tracking=True)
+    expected_price = fields.Float(String="Expected Price", tracking=True)
 
     best_offer = fields.Float(String="best offer")
     selling_price = fields.Float(String="Selling price")
@@ -36,7 +36,7 @@ class Property(models.Model):
         String="Garden orientation", default="north")
 
     sales_id = fields.Many2one('res.users', String="Salesman")
-    buyer_id = fields.Many2one('res.partner', String="Buyer", domain=[('is_company','=',True)])
+    buyer_id = fields.Many2one('res.partner', String="Buyer", domain=[('is_company', '=', True)])
 
     phone = fields.Char(string="Phone", related="buyer_id.phone")
 
@@ -47,8 +47,7 @@ class Property(models.Model):
         for rec in self:
             rec.offer_count = len(rec.offer_ids)
 
-
-    @api.onchange('living_area','garden_area')
+    @api.onchange('living_area', 'garden_area')
     def _adding_space(self):
         for rec in self:
             rec.total_area = rec.living_area + rec.garden_area
@@ -61,12 +60,16 @@ class Property(models.Model):
     def action_cancel(self):
         self.state = 'cancel'
 
+    def action_send_email(self):
+        email_template = self.env.ref('real_estate_ads.model_estate_property')
+        email_template.send_mail(self.id,force_send=True)
 
 class PropertyType(models.Model):
     _name = "estate.property.type"
     _description = "Estate Property Type"
 
     name = fields.Char(string="Name", required=True)
+
 
 class PropertyTag(models.Model):
     _name = "estate.property.tag"

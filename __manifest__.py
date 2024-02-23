@@ -11,11 +11,11 @@
         'views/Property_view_type.xml',
         'views/property_view_tag.xml',
         'views/menu_item.xml',
-        'data/estate.property.type.csv'
-
+        'data/estate.property.type.csv',
+        'data/mail_template.xml'
     ],
     "category": "Sales",
-    "depends": ['base','mail'],
+    "depends": ['base', 'mail'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
