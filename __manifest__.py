@@ -12,7 +12,6 @@
         'views/property_view_tag.xml',
         'views/menu_item.xml',
         'data/estate.property.type.csv',
-        'data/mail_template.xml'
     ],
     "category": "Sales",
     "depends": ['base', 'mail'],

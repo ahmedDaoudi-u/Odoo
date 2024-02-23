@@ -60,9 +60,6 @@ class Property(models.Model):
     def action_cancel(self):
         self.state = 'cancel'
 
-    def action_send_email(self):
-        email_template = self.env.ref('real_estate_ads.model_estate_property')
-        email_template.send_mail(self.id,force_send=True)
 
 class PropertyType(models.Model):
     _name = "estate.property.type"

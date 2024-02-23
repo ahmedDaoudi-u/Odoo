@@ -54,7 +54,6 @@
                     <header>
                         <button name="action_sold" type="object" string="Sold" class="btn btn-primary"/>
                         <button name="action_cancel" type="object" string="Cancel" class="btn btn-danger"/>
-                        <button name="action_send_email" type="object" string="Send email" class="btn btn-danger"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
